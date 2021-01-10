@@ -5,17 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * @author Cool-Coding 2017/12/1
- * 此类是随机样本抽取工具类，从N个样本源中随机抽取M个样本
- *由于N个样本不断的从队列取出，再放到队列尾部，N个样本抽中的概率相等
- * 使用方法：
- * RandomFetch randomFetch=new RandomFetch(source,sampleCount,SampleShow);
- * randomFetch.start()
- * randomFetch.stop()
- * randomFetch.pause()
- * randomFetch.resume()
- */
 public final class Lottery<T> {
     //源数据池
     private List<T> source;

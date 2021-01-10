@@ -54,7 +54,7 @@ public class Toolbar extends JFrame {
 				awaquo.setVisible(true);
 			}
 		});
-		button.setBounds(122, 138, 129, 23);
+		button.setBounds(285, 139, 129, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("\u914D\u7F6E\u53C2\u4E0E\u4EBA\u5458");
@@ -64,7 +64,7 @@ public class Toolbar extends JFrame {
 				cpt.setVisible(true);
 			}
 		});
-		button_1.setBounds(431, 226, 113, 23);
+		button_1.setBounds(457, 335, 123, 23);
 		contentPane.add(button_1);
 		
 		JMenuBar menuBar = new JMenuBar();

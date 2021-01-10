@@ -23,14 +23,14 @@ import java.awt.event.ActionEvent;
 public class Awaquo extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private static JTextField textField;
+	private static JTextField textField_1;
+	private static JTextField textField_2;
+	private static JTextField textField_3;
+	private static JTextField textField_4;
+	private static JTextField textField_5;
+	private static JTextField textField_6;
+	private static JTextField textField_7;
 	private JButton button;
 	private JLabel lblNewLabel;
 
@@ -161,5 +161,36 @@ public class Awaquo extends JFrame {
 		lblNewLabel.setBounds(0, 0, 700, 476);
 		contentPane.add(lblNewLabel);
 	}
-
+	
+	public static String getT() {
+		return textField.getText();
+	}
+	
+	public static String getT_1() {
+		return textField_1.getText();
+	}
+	
+	public static String getT_2() {
+		return textField_2.getText();
+	}
+	
+	public static String getT_3() {
+		return textField_3.getText();
+	}
+	
+	public static String getT_4() {
+		return textField_4.getText();
+	}
+	
+	public static String getT_5() {
+		return textField_5.getText();
+	}
+	
+	public static String getT_6() {
+		return textField_6.getText();
+	}
+	
+	public static String getT_7() {
+		return textField_7.getText();
+	}
 }

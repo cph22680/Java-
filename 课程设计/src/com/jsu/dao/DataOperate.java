@@ -10,7 +10,8 @@ import java.util.Vector;
 
 import javax.swing.JOptionPane;
 
-import com.jsu.ui.Updata;
+import com.jsu.ui.Adddata;
+import com.jsu.ui.Awaquo;
 
 import static java.lang.Math.random;
 
@@ -110,7 +111,7 @@ public class DataOperate {
 		try (Connection conn = dbcs.getConnection(); // 获取数据库接
 				PreparedStatement pstmt = conn.prepareStatement(sql);) {// 实例化PreparedStatement
 			ArrayList<String> alist = new ArrayList<String>();// 定义集合
-			for (int i = 1; i <= 10000;) {
+			for (int i = 1; i <= 20000;) {
 				String eid = getEid().toString();// 随机获取工号
 				if (!alist.contains(eid)) {// 判断工号是否唯一
 					alist.add(eid);// 将学号加入集合
@@ -295,7 +296,7 @@ public class DataOperate {
 						e1 = rs.getString("Eid");
 						n1 = rs.getString("Ename");
 						t1 = rs.getString("Telenum");
-						d1 = rs.getString("Department");
+						//d1 = rs.getString("Department");
 					}
 				}
 		} catch (SQLException e) {
@@ -310,7 +311,112 @@ public class DataOperate {
 			pstmt.setString(1, e1);// 定义第1个占位符的内容
 			pstmt.setString(2, n1);// 定义第2个占位符的内容
 			pstmt.setString(3, t1);// 定义第3个占位符的内容
-			pstmt.setString(4, d1);// 定义第4个占位符的内容
+			pstmt.setString(4, Awaquo.getT());// 定义第4个占位符的内容
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addData_award2(String eid) {
+		DatabaseConnection dbcs = new DatabaseConnection();
+		String e1 = null, n1 = null, t1 = null, d1 = null;
+		String sql = "select * from Employee";
+		try (Connection conn = dbcs.getConnection(); // 获取数据库接
+				Statement pstmt = conn.createStatement()){// 实例化PreparedStatement
+				ResultSet rs = pstmt.executeQuery(sql);// 执行查询语句，结果放到数据集中
+				while(rs.next()) {
+					if(rs.getString("Eid").equals(eid)){
+						e1 = rs.getString("Eid");
+						n1 = rs.getString("Ename");
+						t1 = rs.getString("Telenum");
+						//d1 = rs.getString("Department");
+					}
+				}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		DatabaseConnection dbcs1 = new DatabaseConnection();
+		String sql1 = "insert into Awardlist_2 (Eid,Ename,Telenum,Award) values (?,?,?,?)";
+		try (Connection conn = dbcs1.getConnection(); // 获取数据库接
+				PreparedStatement pstmt = conn.prepareStatement(sql1);// 实例化PreparedStatement
+				) {
+			pstmt.setString(1, e1);// 定义第1个占位符的内容
+			pstmt.setString(2, n1);// 定义第2个占位符的内容
+			pstmt.setString(3, t1);// 定义第3个占位符的内容
+			pstmt.setString(4, Awaquo.getT_1());// 定义第4个占位符的内容
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addData_award3(String eid) {
+		DatabaseConnection dbcs = new DatabaseConnection();
+		String e1 = null, n1 = null, t1 = null, d1 = null;
+		String sql = "select * from Employee";
+		try (Connection conn = dbcs.getConnection(); // 获取数据库接
+				Statement pstmt = conn.createStatement()){// 实例化PreparedStatement
+				ResultSet rs = pstmt.executeQuery(sql);// 执行查询语句，结果放到数据集中
+				while(rs.next()) {
+					if(rs.getString("Eid").equals(eid)){
+						e1 = rs.getString("Eid");
+						n1 = rs.getString("Ename");
+						t1 = rs.getString("Telenum");
+						//d1 = rs.getString("Department");
+					}
+				}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		DatabaseConnection dbcs1 = new DatabaseConnection();
+		String sql1 = "insert into Awardlist_3 (Eid,Ename,Telenum,Award) values (?,?,?,?)";
+		try (Connection conn = dbcs1.getConnection(); // 获取数据库接
+				PreparedStatement pstmt = conn.prepareStatement(sql1);// 实例化PreparedStatement
+				) {
+			pstmt.setString(1, e1);// 定义第1个占位符的内容
+			pstmt.setString(2, n1);// 定义第2个占位符的内容
+			pstmt.setString(3, t1);// 定义第3个占位符的内容
+			pstmt.setString(4, Awaquo.getT_2());// 定义第4个占位符的内容
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addData_award4(String eid) {
+		DatabaseConnection dbcs = new DatabaseConnection();
+		String e1 = null, n1 = null, t1 = null, d1 = null;
+		String sql = "select * from Employee";
+		try (Connection conn = dbcs.getConnection(); // 获取数据库接
+				Statement pstmt = conn.createStatement()){// 实例化PreparedStatement
+				ResultSet rs = pstmt.executeQuery(sql);// 执行查询语句，结果放到数据集中
+				while(rs.next()) {
+					if(rs.getString("Eid").equals(eid)){
+						e1 = rs.getString("Eid");
+						n1 = rs.getString("Ename");
+						t1 = rs.getString("Telenum");
+						//d1 = rs.getString("Department");
+					}
+				}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		DatabaseConnection dbcs1 = new DatabaseConnection();
+		String sql1 = "insert into Awardlist_4 (Eid,Ename,Telenum,Award) values (?,?,?,?)";
+		try (Connection conn = dbcs1.getConnection(); // 获取数据库接
+				PreparedStatement pstmt = conn.prepareStatement(sql1);// 实例化PreparedStatement
+				) {
+			pstmt.setString(1, e1);// 定义第1个占位符的内容
+			pstmt.setString(2, n1);// 定义第2个占位符的内容
+			pstmt.setString(3, t1);// 定义第3个占位符的内容
+			pstmt.setString(4, Awaquo.getT_3());// 定义第4个占位符的内容
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
@@ -322,7 +428,6 @@ public class DataOperate {
 		DatabaseConnection dbcs=new DatabaseConnection();
 		Connection conn = dbcs.getConnection(); // 获取数据库接
 		String sql="update Employee set Ename='"+ename+"',Telenum='"+telenum+"',Department='"+department+"' where Eid="+eid;
-		//System.out.print(eid+ename+telenum+department);
 		try {
 			Statement stm=conn.createStatement();
 			stm.executeUpdate(sql);
@@ -332,25 +437,6 @@ public class DataOperate {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		DatabaseConnection dbcs1 = new DatabaseConnection();
-		String e1 = null, n1 = null, t1 = null, d1 = null;
-		String sql1 = "select * from Employee";
-		try (Connection conn1 = dbcs1.getConnection(); // 获取数据库接
-				Statement pstmt1 = conn1.createStatement()){// 实例化PreparedStatement
-				ResultSet rs1 = pstmt1.executeQuery(sql1);// 执行查询语句，结果放到数据集中
-				while(rs1.next()) {
-					if(rs1.getString("Eid").equals(eid)){
-						e1 = rs1.getString("Eid");
-						n1 = rs1.getString("Ename");
-						t1 = rs1.getString("Telenum");
-						d1 = rs1.getString("Department");
-					}
-				}
-		} catch (SQLException e) {
-			// TODO 自动生成的 catch 块
-			e.printStackTrace();
-		}
-		System.out.print(e1+n1+t1+d1);
 	}
 	
 	public static ArrayList getData() {

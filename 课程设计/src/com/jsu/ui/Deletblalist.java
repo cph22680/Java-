@@ -11,6 +11,7 @@ import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -118,13 +119,14 @@ public class Deletblalist extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton button = new JButton("\u5220\u9664");
+		JButton button = new JButton("删除");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int count = table.getSelectedRow();// 获取你选中的行号（记录）
 				String getname = table.getValueAt(count, 0).toString();// 读取你获取行号的某一列的值（也就是字段）
 				DataOperate.addData1(getname);
 				DataOperate.deletData1(getname);
+				JOptionPane.showMessageDialog(null, "删除成功");
 			}
 		});
 		button.setBounds(516, 41, 93, 23);

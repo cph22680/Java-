@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Conparti extends JFrame {
 
@@ -58,7 +59,7 @@ public class Conparti extends JFrame {
 	 * Create the frame.
 	 */
 	public Conparti() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(300, 150, 700, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,38 +67,38 @@ public class Conparti extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("工号");
-		label.setBounds(40, 40, 54, 15);
+		label.setBounds(21, 117, 44, 15);
 		contentPane.add(label);
 		
 		textField = new JTextField();
-		textField.setBounds(144, 37, 118, 21);
+		textField.setBounds(75, 114, 118, 21);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel label_1 = new JLabel("姓名");
-		label_1.setBounds(342, 40, 54, 15);
+		label_1.setBounds(203, 117, 38, 15);
 		contentPane.add(label_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(430, 37, 105, 21);
+		textField_1.setBounds(251, 114, 105, 21);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel label_2 = new JLabel("电话号码");
-		label_2.setBounds(40, 117, 54, 15);
+		label_2.setBounds(366, 117, 54, 15);
 		contentPane.add(label_2);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(144, 114, 118, 21);
+		textField_2.setBounds(430, 114, 118, 21);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel label_3 = new JLabel("部门");
-		label_3.setBounds(342, 117, 54, 15);
+		label_3.setBounds(558, 117, 38, 15);
 		contentPane.add(label_3);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(430, 114, 105, 21);
+		textField_3.setBounds(598, 114, 66, 21);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -139,8 +140,7 @@ public class Conparti extends JFrame {
 		TableRowSorter sorter = new TableRowSorter<DefaultTableModel>(model);
 		table.setRowSorter(sorter);//设置表格的排序器
 		ArrayList<RowSorter.SortKey> sortKeys = new ArrayList<RowSorter.SortKey>();//设置排序的集合，
-		sortKeys.add(new RowSorter.SortKey(0, SortOrder.DESCENDING));//设置第一种排序方式：第1个参数2，为排序字段，指明为3第个字段cj，第2个参数为升序
-		//sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));//如果第一种排序有相同值，设置第二种排序方式：第1个参数0，为排序字段，指明为1第个字段xh，第2个参数为升序
+		sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));//设置第一种排序方式：第1个参数2，为排序字段，指明为3第个字段cj，第2个参数为升序
 		sorter.setSortKeys(sortKeys);
 		
 		scrollPane.setViewportView(table);// 设置使用滚动面板显示表格，如果不使用滚动面板显示，则表格的列标题无法显示
@@ -188,6 +188,21 @@ public class Conparti extends JFrame {
 		});
 		button_2.setBounds(524, 186, 93, 23);
 		contentPane.add(button_2);
+		
+		JButton button_1 = new JButton("增加新数据");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Adddata adddata=new Adddata();
+				adddata.setVisible(true);
+			}
+		});
+		button_1.setBounds(266, 38, 118, 23);
+		contentPane.add(button_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("D:\\steam\\steamapps\\workshop\\content\\431960\\1433247985\\preview.jpg"));
+		lblNewLabel.setBounds(0, 0, 688, 478);
+		contentPane.add(lblNewLabel);
 		
 	}
 	public static JTable getTable() {

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.jsu.ui","l":"Mainmenu"},{"l":"所有类","url":"allclasses-index.html"}]

@@ -13,6 +13,7 @@ import javax.swing.table.TableRowSorter;
 import com.jsu.dao.DataOperate;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -117,13 +118,14 @@ public class Conblalist extends JFrame {
 		
 		
 		
-		JButton button = new JButton("\u589E\u52A0");
+		JButton button = new JButton("增加");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int count = table.getSelectedRow();// 获取你选中的行号（记录）
 				String getname = table.getValueAt(count, 0).toString();// 读取你获取行号的某一列的值（也就是字段）
 				DataOperate.addData(getname);
 				DataOperate.deletData(getname);
+				JOptionPane.showMessageDialog(null, "增加成功");
 			}
 		});
 		//model.removeRow(table.convertRowIndexToModel(table.getSelectedRow()));

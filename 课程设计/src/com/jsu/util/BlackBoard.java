@@ -12,23 +12,21 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class BlackBoard extends JFrame implements  ActionListener {
-    private final int LUCKYCOUNT =50;
     private final String START ="开始";
     private final String STOP ="停止";
     private final JPanel panel=new JPanel(new GridLayout(5, 2));
     private JButton button;
     private JButton button_1;
 
-    private final Lottery randomFetch;
-
-    public BlackBoard(){
+    private final Lottery lottry;
+    public BlackBoard(int quota){
         // 窗口属性的设置
         setTitle("抽奖");// 窗口标题
         setSize(1121, 500);// 窗口大小
         setLocationRelativeTo(null);// 窗口居中
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
-        for(int i = 0; i< LUCKYCOUNT; i++){
+        for(int i = 0; i< quota; i++){
             final JLabel label=new JLabel();
             label.setName(i+"");
             label.setFont(new Font("宋休",Font.PLAIN,20));
@@ -43,7 +41,7 @@ public class BlackBoard extends JFrame implements  ActionListener {
         button_1 = new JButton(STOP);
         button_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		randomFetch.stop();
+        		lottry.stop();
         		//检查是否有两个Lable 内容相同
         		ArrayList<String> list=new ArrayList<>();
                 for(Component comp:panel.getComponents()){
@@ -80,7 +78,7 @@ public class BlackBoard extends JFrame implements  ActionListener {
         ArrayList<String> source=new ArrayList<>();
         source= DataOperate.getData();
 
-        randomFetch = new Lottery<String>(source, LUCKYCOUNT, new SampleShow<String>() {
+        lottry = new Lottery<String>(source, quota, new SampleShow<String>() {
             @Override
             public String show(int index, String data) {
                 JLabel label=BlackBoard.this.getLabel(index);
@@ -100,10 +98,12 @@ public class BlackBoard extends JFrame implements  ActionListener {
     public void actionPerformed(ActionEvent e) {
         String action=e.getActionCommand();
         if(action.equals(START)) {
-            randomFetch.start();
+        	lottry.start();
             button.setEnabled(false);
         }  
         
 	}
+    
+    
 }
 	
